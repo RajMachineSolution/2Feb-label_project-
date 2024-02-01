@@ -1,0 +1,98 @@
+Pseudo Code (TestClassLibrary1): This class component has a class file named "DatabaseHandler.vb" and a UserControl named as "UserControlLaBEL.vb".
+-------------------------
+
+DatabaseHandler.vb-
+   
+
+
+Public class DatabaseHandler
+
+    
+         Dim  connectionstring as String= "Data Source=desktop-asus;Initial Catalog=sahil;Integrated Security=True"
+
+        Public Shared array12() As Int16
+
+      
+    public shared function RetrieveValuesAsArray() As Int16()
+
+
+
+          // int16List As New List(of Int16) which contains elements that was fetched from " D from 1000 where sno=1 " after getting converted from string to int16
+
+  
+         array12= int16List.ToArray()
+
+           return array12
+
+    
+    End Function
+
+End Class
+
+--------------
+
+UserControlLaBEL.vb-
+
+
+Public Class UserControlLaBEL
+
+
+
+  
+    
+       Dim m,n as Integer
+      
+       Public Shared str As String
+       
+       Public Property startingnumindex() As Integer
+        Get
+            Return m
+        End Get
+        Set(value As Integer)
+            m = value
+        End Set
+    End Property
+
+        Public Property consecutivenum() As Integer
+        Get
+            Return n
+        End Get
+        Set(value As Integer)
+            n = value
+        End Set
+    End Property
+
+
+
+ Public  Function result() 
+
+ 
+      Dim i As Integer
+    
+
+     Dim newArray() As Short = DatabaseHandler.RetrieveValuesAsArray
+      
+    For i=m To m+n-1
+    
+      If str="" Then
+       str= str + "" + newArray(i).ToString
+     
+      Else
+       str= str + "," + newArray(i).ToString
+
+      End If 
+
+    Next i
+   
+  Label1.Text = str
+   
+   
+
+   End Function      
+
+
+
+End Class
+
+
+
